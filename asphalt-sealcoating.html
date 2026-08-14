@@ -43,7 +43,7 @@ html { scroll-behavior: smooth; }
   --gray-500: #737373; --gray-700: #444444;
   --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-  --max-width: 1200px; --header-height: 80px;
+  --max-width: 1200px; --header-height: 96px;
 }
 body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
@@ -66,15 +66,15 @@ ul { list-style: none; }
 .header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
 .header-top a { font-weight: 700; }
 .header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
-.logo img { height: 60px; width: auto; }
+.logo img { height: 72px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 8px; }
-.nav-links a { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
+.nav-links a { font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 .header-cta { display: flex; align-items: center; gap: 20px; }
 .header-phone { font-size: 15px; font-weight: 700; color: var(--gold); }
 .header-btn { font-size: 12px; padding: 10px 22px; }
 .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; }
+.mobile-toggle span { display: block; width: 30px; height: 3px; background: var(--white); margin: 5px 0; }
 
 /* Dropdown */
 .nav-dropdown { position: relative; }
@@ -97,7 +97,8 @@ ul { list-style: none; }
 /* Page Hero */
 .page-hero {
   position: relative; padding: 80px 0 40px; text-align: center;
-  color: var(--white); margin-top: calc(var(--header-height) + 30px);
+  color: var(--white); padding-top: calc(var(--header-height) + 30px);
+  margin-top: 0;
 }
 .page-hero-bg {
   position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0;
@@ -167,7 +168,8 @@ ul { list-style: none; }
 .footer-social { display: flex; gap: 12px; margin-top: 20px; }
 .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); color: var(--white); font-weight: 700; font-size: 14px; transition: all 0.2s; }
 .footer-social a:hover { background: var(--gold); color: var(--black); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; font-size: 13px; color: #999; }
+.footer-bottom { position: fixed; bottom: 0; left: 0; right: 0; z-index: 990; background: var(--black); border-top: 1px solid rgba(232,169,36,0.3); padding: 14px 0; text-align: center; font-size: 12px; color: #999; }
+.site-footer { padding-bottom: 48px; }
 
 /* Floating CTA */
 .floating-cta {
@@ -222,11 +224,12 @@ ul { list-style: none; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  :root { --header-height: 64px; }
+  :root { --header-height: 80px; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--header-height); left: 0; right: 0; background: var(--black); padding: 20px; }
-  .nav-links.open a { padding: 12px 16px; font-size: 14px; }
+  .nav-links.open a { padding: 12px 16px; font-size: 18px; }
   .mobile-toggle { display: block; }
+  .footer-bottom { display: none; }
   .header-phone { display: none; }
   .header-btn { display: none; }
   .header-top { font-size: 11px; white-space: nowrap; overflow-x: auto; padding: 5px 16px; }
@@ -256,7 +259,7 @@ gtag('config', 'G-H5GSYV3RJT');
 
 <header class="site-header">
   <div class="header-top">
-    <span>CCB Licensed &amp; Insured &bull; Family-Owned Since the 1960s &bull; Serving Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
+    <span>Family Owned Since 1962 &bull; Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
   </div>
   <div class="header-main">
     <a href="/gettisbros-site/" class="logo">

@@ -83,7 +83,7 @@ html { scroll-behavior: smooth; }
   --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
   --max-width: 1200px;
-  --header-height: 80px;
+  --header-height: 96px;
 }
 
 body {
@@ -212,7 +212,7 @@ ul { list-style: none; }
 }
 
 .logo img {
-  height: 60px;
+  height: 72px;
   width: auto;
 }
 
@@ -222,7 +222,7 @@ ul { list-style: none; }
   gap: 8px;
 }
 .nav-links a {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -296,8 +296,8 @@ ul { list-style: none; }
 }
 .mobile-toggle span {
   display: block;
-  width: 24px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   background: var(--white);
   margin: 5px 0;
   transition: 0.3s;
@@ -313,7 +313,8 @@ ul { list-style: none; }
   text-align: center;
   color: var(--white);
   overflow: hidden;
-  margin-top: calc(var(--header-height) + 30px);
+  padding-top: calc(var(--header-height) + 30px);
+  margin-top: 0;
 }
 .hero-bg {
   position: absolute;
@@ -1088,12 +1089,19 @@ ul { list-style: none; }
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 990;
+  background: var(--black);
+  border-top: 1px solid rgba(232,169,36,0.3);
+  padding: 14px 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   color: #999;
 }
+.site-footer { padding-bottom: 48px; }
 
 /* --- Floating CTA (desktop pill) --- */
 .floating-cta {
@@ -1257,7 +1265,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  :root { --header-height: 64px; }
+  :root { --header-height: 80px; }
 
   .header-top { font-size: 11px; padding: 5px 16px; white-space: nowrap; overflow-x: auto; }
 
@@ -1274,16 +1282,17 @@ ul { list-style: none; }
     border-top: 1px solid rgba(255,255,255,0.1);
   }
   .nav-links.open a {
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 14px 16px;
+    font-size: 18px;
   }
 
   .mobile-toggle { display: block; }
+  .footer-bottom { display: none; }
 
   .header-phone { display: none; }
   .header-btn { display: none; }
 
-  .hero { min-height: 80vh; margin-top: calc(var(--header-height) + 30px); }
+  .hero { min-height: 80vh; padding-top: calc(var(--header-height) + 30px); margin-top: 0; }
   .hero h1 { font-size: clamp(28px, 8vw, 44px); }
 
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1340,7 +1349,7 @@ gtag('config', 'G-H5GSYV3RJT');
 <!-- Header -->
 <header class="site-header">
   <div class="header-top">
-    <span>CCB Licensed &amp; Insured &bull; Family-Owned Since the 1960s &bull; Serving Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
+    <span>Family Owned Since 1962 &bull; Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
   </div>
   <div class="header-main">
     <a href="/gettisbros-site/" class="logo">

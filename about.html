@@ -32,7 +32,7 @@ html { scroll-behavior: smooth; }
   --gray-500: #737373; --gray-700: #444444;
   --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-  --max-width: 1200px; --header-height: 80px;
+  --max-width: 1200px; --header-height: 96px;
 }
 body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
@@ -53,15 +53,15 @@ ul { list-style: none; }
 .header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
 .header-top a { font-weight: 700; }
 .header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
-.logo img { height: 60px; width: auto; }
+.logo img { height: 72px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 8px; }
-.nav-links a { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
+.nav-links a { font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 .header-cta { display: flex; align-items: center; gap: 20px; }
 .header-phone { font-size: 15px; font-weight: 700; color: var(--gold); letter-spacing: 0.5px; }
 .header-btn { font-size: 12px; padding: 10px 22px; }
 .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; }
+.mobile-toggle span { display: block; width: 30px; height: 3px; background: var(--white); margin: 5px 0; transition: 0.3s; }
 
 /* Dropdown Nav */
 .nav-dropdown { position: relative; }
@@ -79,7 +79,7 @@ ul { list-style: none; }
 .nav-dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
 
 /* Page Hero */
-.page-hero { position: relative; color: var(--white); padding: 80px 0 40px; text-align: center; margin-top: calc(var(--header-height) + 30px); overflow: hidden; background: var(--black); }
+.page-hero { position: relative; color: var(--white); padding: 80px 0 40px; text-align: center; padding-top: calc(var(--header-height) + 30px); margin-top: 0; overflow: hidden; background: var(--black); }
 .page-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 1; }
 .page-hero .container { position: relative; z-index: 2; }
@@ -105,7 +105,11 @@ ul { list-style: none; }
 .value-card p { font-size: 15px; line-height: 1.7; color: #666; }
 
 /* Coastal Section */
-.coastal { padding: 100px 0; background: var(--dark); color: var(--white); }
+.coastal { padding: 100px 0; position: relative; color: var(--white); overflow: hidden; }
+.coastal-video-bg { position: absolute; inset: 0; z-index: 0; }
+.coastal-video-bg video { width: 100%; height: 100%; object-fit: cover; }
+.coastal::after { content: ''; position: absolute; inset: 0; background: rgba(17,17,17,0.88); z-index: 1; }
+.coastal .container { position: relative; z-index: 2; }
 .coastal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .coastal-text h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--gold); }
 .coastal-text p { font-size: 17px; line-height: 1.8; color: var(--gray-300); margin-bottom: 16px; }
@@ -143,9 +147,13 @@ ul { list-style: none; }
 .family-grid .photo-item:nth-child(6) img { height: 340px; }
 
 /* CTA */
-.cta-section { padding: 80px 0; background: var(--gold); text-align: center; }
-.cta-section h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 800; text-transform: uppercase; color: var(--black); margin-bottom: 16px; }
-.cta-section p { font-size: 17px; color: var(--dark); margin-bottom: 28px; }
+.cta-section { padding: 100px 0; position: relative; text-align: center; color: var(--white); overflow: hidden; }
+.cta-section-video { position: absolute; inset: 0; z-index: 0; }
+.cta-section-video video { width: 100%; height: 100%; object-fit: cover; }
+.cta-section::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17,17,17,0.85) 0%, rgba(26,23,8,0.8) 50%, rgba(17,17,17,0.85) 100%); z-index: 1; }
+.cta-section .container { position: relative; z-index: 2; }
+.cta-section h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 800; text-transform: uppercase; margin-bottom: 16px; }
+.cta-section p { font-size: 17px; color: var(--gray-300); margin-bottom: 28px; }
 
 /* Footer */
 .site-footer { background: var(--black); color: var(--white); padding: 80px 0 0; }
@@ -161,7 +169,8 @@ ul { list-style: none; }
 .footer-links a:hover { color: var(--gold); }
 .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14px; color: var(--gray-300); }
 .footer-contact-icon { color: var(--gold); font-size: 16px; margin-top: 2px; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; font-size: 13px; color: #999; }
+.footer-bottom { position: fixed; bottom: 0; left: 0; right: 0; z-index: 990; background: var(--black); border-top: 1px solid rgba(232,169,36,0.3); padding: 14px 0; text-align: center; font-size: 12px; color: #999; }
+.site-footer { padding-bottom: 48px; }
 
 /* Floating CTA */
 .floating-cta { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--gold); color: var(--black); font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px 28px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all 0.3s; animation: pulse-shadow 2s infinite; }
@@ -189,12 +198,13 @@ ul { list-style: none; }
 .modal-call-btn { font-size: 15px !important; }
 
 @media (max-width: 768px) {
-  :root { --header-height: 64px; }
+  :root { --header-height: 80px; }
   .header-top { font-size: 12px; padding: 5px 0; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--header-height); left: 0; right: 0; background: var(--black); padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-  .nav-links.open a { padding: 12px 16px; font-size: 14px; }
+  .nav-links.open a { padding: 12px 16px; font-size: 18px; }
   .mobile-toggle { display: block; }
+  .footer-bottom { display: none; }
   .header-phone { display: none; }
   .header-btn { display: none; }
   .about-story-grid, .coastal-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -232,7 +242,7 @@ gtag('config', 'G-H5GSYV3RJT');
 
 <header class="site-header">
   <div class="header-top">
-    <span>CCB Licensed &amp; Insured &bull; Family-Owned Since the 1960s &bull; Serving Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
+    <span>Family Owned Since 1962 &bull; Lincoln County, OR &bull; <a href="tel:9713041012">(971) 304-1012</a></span>
   </div>
   <div class="header-main">
     <a href="/gettisbros-site/" class="logo"><img src="images/logo-white.png" alt="Gettis Bros Asphalt and Construction" loading="eager" width="42" height="60"></a>
@@ -277,7 +287,7 @@ gtag('config', 'G-H5GSYV3RJT');
   <div class="container">
     <div class="about-story-grid">
       <div class="about-story-image">
-        <img src="images/crew-workers.jpg" alt="Gettis Bros construction crew" loading="lazy">
+        <img src="images/gettis-09.jpg" alt="Oceanlake Paving Co at Wapiti Park — where it all started in the 1960s" loading="lazy" style="filter: sepia(0.15);">
       </div>
       <div class="about-story-text">
         <div class="section-eyebrow">Our Story</div>
@@ -317,6 +327,7 @@ gtag('config', 'G-H5GSYV3RJT');
 </section>
 
 <section class="coastal dark-section">
+  <div class="coastal-video-bg"><video autoplay muted loop playsinline><source src="images/hero-projects.mp4" type="video/mp4"></video></div>
   <div class="container">
     <div class="coastal-grid">
       <div class="coastal-text">
@@ -384,11 +395,13 @@ gtag('config', 'G-H5GSYV3RJT');
   </div>
 </section>
 
-<section class="cta-section">
+<section class="cta-section dark-section">
+  <div class="cta-section-video"><video autoplay muted loop playsinline><source src="images/hero-services.mp4" type="video/mp4"></video></div>
   <div class="container">
+    <div class="section-eyebrow">Contact Us Today</div>
     <h2>Ready to Start Your Project?</h2>
-    <p>Get a free estimate for your next construction project. We&rsquo;re here to help.</p>
-    <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-dark">Get a Free Estimate</a>
+    <p>Get a free estimate from the Gettis Bros team &mdash; no obligation, no pressure. Serving all of Lincoln County.</p>
+    <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold">Get a Free Estimate</a>
   </div>
 </section>
 
