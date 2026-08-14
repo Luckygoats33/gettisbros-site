@@ -48,12 +48,39 @@ var LABELS = {
   project_details: 'Project Details',
 };
 
+// A consumer Gmail account allows ~100 recipients/day and each lead uses 2
+// (To + CC). A spam flood would burn the quota and silently drop real leads,
+// so cap sends per hour and per day. Bots get a success response either way —
+// telling them they were blocked just invites retries.
+var LIMITS = { PER_HOUR: 12, PER_DAY: 40 };
+
+function underQuota() {
+  var props = PropertiesService.getScriptProperties();
+  var now = new Date();
+  var hourKey = 'h_' + Utilities.formatDate(now, 'UTC', 'yyyyMMddHH');
+  var dayKey = 'd_' + Utilities.formatDate(now, 'UTC', 'yyyyMMdd');
+
+  var hour = Number(props.getProperty(hourKey) || 0);
+  var day = Number(props.getProperty(dayKey) || 0);
+  if (hour >= LIMITS.PER_HOUR || day >= LIMITS.PER_DAY) return false;
+
+  props.setProperty(hourKey, String(hour + 1));
+  props.setProperty(dayKey, String(day + 1));
+  return true;
+}
+
 function doPost(e) {
   try {
     var p = (e && e.parameter) || {};
 
     // Honeypot: a bot filled the hidden field. Accept silently, send nothing.
     if (p._honey) return json({ success: 'true', message: 'ok' });
+
+    // Rate limit before doing any work, so a flood cannot exhaust the mail quota.
+    if (!underQuota()) {
+      console.warn('Rate limit hit — submission not emailed: ' + JSON.stringify(p).slice(0, 300));
+      return json({ success: 'true', message: 'ok' });
+    }
 
     var replyTo = p._replyto || p.email || p.your_email || '';
     var subject = p._subject || 'New Website Enquiry - Gettis Bros';
