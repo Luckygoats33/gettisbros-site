@@ -35,7 +35,9 @@ ul { list-style: none; }
 
 /* Header */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(17,17,17,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
+.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; overflow: hidden; white-space: nowrap; }
+.header-top span { display: inline-block; animation: marquee 18s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 .header-top a { font-weight: 700; }
 .header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
 .logo img { height: 72px; width: auto; }
@@ -65,7 +67,7 @@ ul { list-style: none; }
 /* Blog Hero — Featured Post */
 .blog-hero {
   position: relative;
-  padding-top: calc(var(--header-height) + 30px);
+  padding-top: calc(var(--header-height) + 42px);
   margin-top: 0;
   height: 520px;
   overflow: hidden;

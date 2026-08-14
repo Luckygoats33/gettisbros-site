@@ -198,6 +198,16 @@ ul { list-style: none; }
   letter-spacing: 0.5px;
   padding: 6px 0;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.header-top span {
+  display: inline-block;
+  animation: marquee 18s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
 }
 .header-top a { font-weight: 700; }
 
@@ -313,7 +323,7 @@ ul { list-style: none; }
   text-align: center;
   color: var(--white);
   overflow: hidden;
-  padding-top: calc(var(--header-height) + 30px);
+  padding-top: calc(var(--header-height) + 42px);
   margin-top: 0;
 }
 .hero-bg {
@@ -1267,7 +1277,7 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   :root { --header-height: 80px; }
 
-  .header-top { font-size: 11px; padding: 5px 16px; white-space: nowrap; overflow-x: auto; }
+  .header-top { font-size: 11px; padding: 5px 16px; }
 
   .nav-links { display: none; }
   .nav-links.open {
@@ -1292,7 +1302,7 @@ ul { list-style: none; }
   .header-phone { display: none; }
   .header-btn { display: none; }
 
-  .hero { min-height: 80vh; padding-top: calc(var(--header-height) + 30px); margin-top: 0; }
+  .hero { min-height: 80vh; padding-top: calc(var(--header-height) + 42px); margin-top: 0; }
   .hero h1 { font-size: clamp(28px, 8vw, 44px); }
 
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
