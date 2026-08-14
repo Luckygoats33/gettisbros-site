@@ -99,7 +99,8 @@ ul { list-style: none; }
 .values { padding: 80px 0; background: var(--light); }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 50px; }
 .value-card { background: var(--white); padding: 40px 28px; border-radius: 6px; border: 1px solid var(--gray-100); text-align: center; }
-.value-icon { font-size: 36px; margin-bottom: 16px; }
+.value-icon { margin-bottom: 16px; width: 48px; height: 48px; margin-left: auto; margin-right: auto; color: var(--gold); }
+.value-icon svg { width: 48px; height: 48px; }
 .value-card h3 { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
 .value-card p { font-size: 15px; line-height: 1.7; color: #666; }
 
@@ -166,6 +167,10 @@ ul { list-style: none; }
 .floating-cta { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--gold); color: var(--black); font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px 28px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all 0.3s; animation: pulse-shadow 2s infinite; }
 .floating-cta:hover { background: var(--gold-hover); transform: translateY(-2px); }
 @keyframes pulse-shadow { 0%, 100% { box-shadow: 0 4px 20px rgba(232,169,36,0.3); } 50% { box-shadow: 0 4px 30px rgba(232,169,36,0.5); } }
+.mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: var(--gold); text-align: center; padding: 16px 20px; box-shadow: 0 -4px 20px rgba(0,0,0,0.25); transform: translateY(100%); transition: transform 0.3s ease; }
+.mobile-cta-bar.visible { transform: translateY(0); }
+.mobile-cta-bar a { color: var(--black); font-family: var(--font-display); font-weight: 800; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; }
+@media (max-width: 768px) { .floating-cta { display: none !important; } .mobile-cta-bar { display: block; } }
 
 /* Estimate Modal */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
@@ -191,6 +196,7 @@ ul { list-style: none; }
   .nav-links.open a { padding: 12px 16px; font-size: 14px; }
   .mobile-toggle { display: block; }
   .header-phone { display: none; }
+  .header-btn { display: none; }
   .about-story-grid, .coastal-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-story-image img { height: 300px; }
   .values-grid { grid-template-columns: 1fr; }
@@ -252,7 +258,7 @@ gtag('config', 'G-H5GSYV3RJT');
     </nav>
     <div class="header-cta">
       <a href="tel:9713041012" class="header-phone">(971) 304-1012</a>
-      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold header-btn">Free Estimate</a>
+      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold header-btn">Get a Free Estimate</a>
     </div>
     <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -294,17 +300,17 @@ gtag('config', 'G-H5GSYV3RJT');
     </div>
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-icon">&#127919;</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Our Mission</h3>
         <p>To deliver quality construction and hardscaping services built on trust, craftsmanship, and lasting results for every client.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">&#128065;</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h3>Our Vision</h3>
         <p>To be the Oregon Coast&rsquo;s most trusted name in construction &mdash; known for reliability, precision, and community pride.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">&#128170;</div>
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Our Values</h3>
         <p>We stand by integrity, hard work, and respect &mdash; ensuring every project reflects our commitment to excellence.</p>
       </div>
@@ -344,19 +350,19 @@ gtag('config', 'G-H5GSYV3RJT');
     </div>
     <div class="family-grid">
       <div class="photo-item">
-        <img src="images/gettis-09.jpg" alt="Oceanlake Paving crew at Wapiti Park — early days on the Oregon Coast" loading="lazy">
+        <img src="images/gettis-09.jpg" alt="Oceanlake Paving crew at Wapiti Park ï¿½ early days on the Oregon Coast" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-10.jpg" alt="Gettis family operating a road grader — vintage paving on the coast" loading="lazy">
+        <img src="images/gettis-10.jpg" alt="Gettis family operating a road grader ï¿½ vintage paving on the coast" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-03.jpg" alt="Oceanlake Sand and Gravel dump truck — family business roots" loading="lazy">
+        <img src="images/gettis-03.jpg" alt="Oceanlake Sand and Gravel dump truck ï¿½ family business roots" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-04.jpg" alt="CAT bulldozer on a Gettis excavation job — August 1982" loading="lazy">
+        <img src="images/gettis-04.jpg" alt="CAT bulldozer on a Gettis excavation job ï¿½ August 1982" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-05.jpg" alt="Great-grandfather shoveling on the job — four generations of builders" loading="lazy">
+        <img src="images/gettis-05.jpg" alt="Great-grandfather shoveling on the job ï¿½ four generations of builders" loading="lazy">
       </div>
       <div class="photo-item">
         <img src="images/gettis-06.jpg" alt="Father and son in Gettis Paving shirts with the family dog" loading="lazy">
@@ -365,16 +371,16 @@ gtag('config', 'G-H5GSYV3RJT');
         <img src="images/gettis-07.jpg" alt="Three generations of the Gettis family together" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-08.jpg" alt="Oceanlake Paving plant — the family operation that started it all" loading="lazy">
+        <img src="images/gettis-08.jpg" alt="Oceanlake Paving plant ï¿½ the family operation that started it all" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-family.jpg" alt="The Gettis family — four generations strong" loading="lazy">
+        <img src="images/gettis-family.jpg" alt="The Gettis family ï¿½ four generations strong" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-01.jpg" alt="Custom shed interior built by Gettis Bros — hardwood floors and vaulted ceiling" loading="lazy">
+        <img src="images/gettis-01.jpg" alt="Custom shed interior built by Gettis Bros ï¿½ hardwood floors and vaulted ceiling" loading="lazy">
       </div>
       <div class="photo-item">
-        <img src="images/gettis-02.jpg" alt="Custom shed interior — view from entry with french door and skylight" loading="lazy">
+        <img src="images/gettis-02.jpg" alt="Custom shed interior ï¿½ view from entry with french door and skylight" loading="lazy">
       </div>
     </div>
   </div>
@@ -491,9 +497,21 @@ gtag('config', 'G-H5GSYV3RJT');
 </div>
 
 <!-- Floating Estimate Button -->
-<a href="#" onclick="openEstimateModal(); return false;" class="floating-cta">Free Estimate</a>
+<a href="#" onclick="openEstimateModal(); return false;" class="floating-cta">Get a Free Estimate</a>
+<!-- Mobile Sticky Bottom Bar -->
+<div class="mobile-cta-bar" id="mobileCta">
+  <a href="#" onclick="openEstimateModal(); return false;">Get a Free Estimate</a>
+</div>
 
 <script>
+// Mobile CTA bar
+(function() {
+  var bar = document.getElementById('mobileCta');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) { bar.classList.add('visible'); } else { bar.classList.remove('visible'); }
+  });
+})();
 function openEstimateModal() {
   document.getElementById('estimateModal').classList.add('active');
   document.body.style.overflow = 'hidden';

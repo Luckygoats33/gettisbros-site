@@ -662,7 +662,7 @@ ul { list-style: none; }
 
 /* --- Refer a Friend --- */
 .referral {
-  padding: 80px 0;
+  padding: 100px 0;
   background: linear-gradient(135deg, #1a1708 0%, #2a1f0a 50%, #1a1708 100%);
   color: var(--white);
 }
@@ -767,7 +767,7 @@ ul { list-style: none; }
 }
 .heritage-photos img {
   width: 100%;
-  height: 120px;
+  height: 140px;
   object-fit: cover;
   border-radius: 6px;
   filter: sepia(0.15) contrast(1.05);
@@ -776,11 +776,6 @@ ul { list-style: none; }
 .heritage-photos img:hover {
   filter: sepia(0) contrast(1);
   transform: scale(1.03);
-}
-.heritage-photos img:nth-child(1),
-.heritage-photos img:nth-child(5) {
-  grid-column: span 2;
-  height: 150px;
 }
 .heritage-text {
   padding-top: 8px;
@@ -955,20 +950,31 @@ ul { list-style: none; }
 
 /* --- CTA Section --- */
 .cta {
-  padding: 100px 0;
-  background: url('images/oregon-coast.jpg') center/cover no-repeat;
+  padding: 120px 0;
   position: relative;
   color: var(--white);
+  overflow: hidden;
 }
-.cta::before {
+.cta-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cta-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cta::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.75);
+  background: linear-gradient(135deg, rgba(17,17,17,0.88) 0%, rgba(26,23,8,0.82) 50%, rgba(17,17,17,0.88) 100%);
+  z-index: 1;
 }
 .cta-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
@@ -1089,7 +1095,7 @@ ul { list-style: none; }
   color: #999;
 }
 
-/* --- Floating CTA --- */
+/* --- Floating CTA (desktop pill) --- */
 .floating-cta {
   position: fixed;
   bottom: 24px;
@@ -1116,6 +1122,34 @@ ul { list-style: none; }
 @keyframes pulse-shadow {
   0%, 100% { box-shadow: 0 4px 20px rgba(232,169,36,0.3); }
   50% { box-shadow: 0 4px 30px rgba(232,169,36,0.5); }
+}
+/* --- Mobile Sticky Bottom Bar --- */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--gold);
+  text-align: center;
+  padding: 16px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.mobile-cta-bar.visible { transform: translateY(0); }
+.mobile-cta-bar a {
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .floating-cta { display: none !important; }
+  .mobile-cta-bar { display: block; }
 }
 
 /* --- Estimate Modal --- */
@@ -1225,7 +1259,7 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   :root { --header-height: 64px; }
 
-  .header-top { font-size: 12px; padding: 5px 0; }
+  .header-top { font-size: 11px; padding: 5px 16px; white-space: nowrap; overflow-x: auto; }
 
   .nav-links { display: none; }
   .nav-links.open {
@@ -1247,6 +1281,7 @@ ul { list-style: none; }
   .mobile-toggle { display: block; }
 
   .header-phone { display: none; }
+  .header-btn { display: none; }
 
   .hero { min-height: 80vh; margin-top: calc(var(--header-height) + 30px); }
   .hero h1 { font-size: clamp(28px, 8vw, 44px); }
@@ -1290,8 +1325,6 @@ ul { list-style: none; }
   .about-stats { grid-template-columns: 1fr; gap: 16px; }
   .process-grid { grid-template-columns: 1fr; }
   .heritage-photos { grid-template-columns: repeat(2, 1fr); }
-  .heritage-photos img:nth-child(1),
-  .heritage-photos img:nth-child(5) { grid-column: span 1; height: 160px; }
 }
 </style>
 <!--
@@ -1335,7 +1368,7 @@ gtag('config', 'G-H5GSYV3RJT');
     </nav>
     <div class="header-cta">
       <a href="tel:9713041012" class="header-phone">(971) 304-1012</a>
-      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold header-btn">Free Estimate</a>
+      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold header-btn">Get a Free Estimate</a>
     </div>
     <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1733,13 +1766,14 @@ gtag('config', 'G-H5GSYV3RJT');
       </div>
       <div class="referral-commission">5% Commission</div>
       <p style="font-size:14px; color:var(--gray-300); margin-bottom:24px;">No limits. No caps. The bigger the project, the bigger your payout.</p>
-      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold">Refer Someone Today</a>
+      <a href="#" onclick="openReferralModal(); return false;" class="btn btn-gold">Refer Someone Today</a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta dark-section">
+  <div class="cta-video-bg"><video autoplay muted loop playsinline><source src="images/hero-services.mp4" type="video/mp4"></video></div>
   <div class="container">
     <div class="cta-content">
       <div class="section-eyebrow">Contact Us Today</div>
@@ -1856,11 +1890,55 @@ gtag('config', 'G-H5GSYV3RJT');
   </div>
 </div>
 
-<!-- Floating Estimate Button -->
-<a href="#" onclick="openEstimateModal(); return false;" class="floating-cta">Free Estimate</a>
+<!-- Floating Estimate Button (desktop) -->
+<a href="#" onclick="openEstimateModal(); return false;" class="floating-cta">Get a Free Estimate</a>
+
+<!-- Mobile Sticky Bottom Bar -->
+<div class="mobile-cta-bar" id="mobileCta">
+  <a href="#" onclick="openEstimateModal(); return false;">Get a Free Estimate</a>
+</div>
+
+<!-- Referral Modal -->
+<div class="modal-overlay" id="referralModal">
+  <div class="modal-box" style="max-width:520px;">
+    <button class="modal-close" onclick="closeReferralModal()">&times;</button>
+    <h3>Refer a Friend</h3>
+    <p style="color:var(--gray-500); margin-bottom:24px;">Know someone who needs construction work? Fill in their info and yours below. When they book, you earn 5% of the project.</p>
+    <form id="referralForm" action="https://formsubmit.co/ajax/gettisbros@gmail.com" method="POST" style="display:flex; flex-direction:column; gap:14px;">
+      <input type="hidden" name="_subject" value="New Referral from Website">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="your_name" placeholder="Your Name" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
+      <input type="tel" name="your_phone" placeholder="Your Phone" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
+      <input type="email" name="your_email" placeholder="Your Email" style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
+      <hr style="border:none; border-top:1px solid var(--gray-100); margin:8px 0;">
+      <input type="text" name="friend_name" placeholder="Friend's Name" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
+      <input type="tel" name="friend_phone" placeholder="Friend's Phone" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
+      <textarea name="project_details" placeholder="What kind of project do they need?" style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px; min-height:80px;"></textarea>
+      <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">Submit Referral</button>
+    </form>
+    <div id="referralSuccess" style="display:none; text-align:center; padding:40px 20px;">
+      <div style="font-size:48px; margin-bottom:16px;">&#10003;</div>
+      <h3 style="margin-bottom:12px;">Referral Submitted!</h3>
+      <p style="color:var(--gray-500);">We'll reach out to your friend. When they book, you'll earn 5% of the project value.</p>
+    </div>
+  </div>
+</div>
 
 <!-- Scripts -->
 <script>
+// Mobile CTA bar — show on scroll
+(function() {
+  var bar = document.getElementById('mobileCta');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  });
+})();
+
 window.addEventListener('scroll', function() {
   const header = document.querySelector('.site-header');
   if (window.scrollY > 100) {
@@ -1882,7 +1960,37 @@ document.getElementById('estimateModal').addEventListener('click', function(e) {
   if (e.target === this) closeEstimateModal();
 });
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeEstimateModal();
+  if (e.key === 'Escape') { closeEstimateModal(); closeReferralModal(); }
+});
+
+function openReferralModal() {
+  document.getElementById('referralModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeReferralModal() {
+  document.getElementById('referralModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('referralModal').addEventListener('click', function(e) {
+  if (e.target === this) closeReferralModal();
+});
+document.getElementById('referralForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  var data = new FormData(form);
+  fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
+    method: 'POST',
+    body: data
+  }).then(function(r) { return r.json(); }).then(function() {
+    form.style.display = 'none';
+    document.getElementById('referralSuccess').style.display = 'block';
+  }).catch(function() {
+    form.style.display = 'none';
+    document.getElementById('referralSuccess').style.display = 'block';
+  });
 });
 
 // Estimate form submission — FormSubmit.co
