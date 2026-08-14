@@ -83,7 +83,7 @@ html { scroll-behavior: smooth; }
   --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
   --max-width: 1200px;
-  --header-height: 96px;
+  --header-height: 110px;
 }
 
 body {
@@ -198,16 +198,6 @@ ul { list-style: none; }
   letter-spacing: 0.5px;
   padding: 6px 0;
   text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.header-top span {
-  display: inline-block;
-  animation: marquee 18s linear infinite;
-}
-@keyframes marquee {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-100%); }
 }
 .header-top a { font-weight: 700; }
 
@@ -215,14 +205,14 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 5px 24px;
   max-width: 1400px;
   margin: 0 auto;
-  height: var(--header-height);
+  min-height: var(--header-height);
 }
 
 .logo img {
-  height: 72px;
+  height: 80px;
   width: auto;
 }
 
@@ -530,16 +520,23 @@ ul { list-style: none; }
 
 /* --- Trust / Credentials --- */
 .trust {
-  padding: 32px 0;
+  padding: 14px 0;
   background: var(--gold);
   color: var(--black);
+  overflow: hidden;
 }
 .trust-grid {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 32px;
-  flex-wrap: nowrap;
+  gap: 48px;
+  white-space: nowrap;
+  animation: trustScroll 18s linear infinite;
+  width: max-content;
+}
+.trust-grid:hover { animation-play-state: paused; }
+@keyframes trustScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .trust-item {
   display: flex;
@@ -1275,7 +1272,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
-  :root { --header-height: 86px; }
+  :root { --header-height: 96px; }
 
   .header-top { font-size: 11px; padding: 5px 16px; }
 
@@ -1320,7 +1317,6 @@ ul { list-style: none; }
 
   .referral-steps { grid-template-columns: 1fr; }
 
-  .trust-grid { gap: 12px 24px; flex-wrap: wrap; }
   .trust-item { font-size: 11px; gap: 6px; }
 
   .hero-buttons { flex-direction: column; align-items: center; }
@@ -1396,7 +1392,7 @@ gtag('config', 'G-H5GSYV3RJT');
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-bg"><video autoplay muted loop playsinline><source src="images/hero-video-web.mp4" type="video/mp4"></video></div>
+  <div class="hero-bg"><video autoplay muted loop playsinline><source src="images/hero-video-hq.mp4" type="video/mp4"></video></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Est. 1960s &bull; Lincoln County, Oregon</div>
     <h1>Four Generations of Coastal Construction</h1>
@@ -1429,6 +1425,22 @@ gtag('config', 'G-H5GSYV3RJT');
         <svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>60+ Years of Experience</span>
       </div>
+      <div class="trust-item">
+        <svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>CCB Licensed &amp; Insured</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Family-Owned Since the 1960s</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Serving All of Lincoln County</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>60+ Years of Experience</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1442,15 +1454,12 @@ gtag('config', 'G-H5GSYV3RJT');
     </div>
     <div class="heritage-content">
       <div class="heritage-photos">
-        <img src="images/gettis-09.jpg" alt="Oceanlake Paving crew at Wapiti Park � early days on the Oregon Coast" loading="lazy" width="1200" height="900">
-        <img src="images/gettis-10.jpg" alt="Gettis family operating a road grader � vintage paving on the coast" loading="lazy" width="1200" height="900">
-        <img src="images/gettis-03.jpg" alt="Oceanlake Sand and Gravel dump truck � family business roots" loading="lazy" width="1200" height="900">
-        <img src="images/gettis-04.jpg" alt="CAT bulldozer on a Gettis excavation job � August 1982" loading="lazy" width="1200" height="900">
-        <img src="images/gettis-05.jpg" alt="Great-grandfather shoveling on the job � four generations of builders" loading="lazy" width="1200" height="900">
+        <img src="images/gettis-10.jpg" alt="Gettis family operating a road grader — vintage paving on the coast" loading="lazy" width="1200" height="900">
+        <img src="images/gettis-03.jpg" alt="Oceanlake Sand and Gravel dump truck — family business roots" loading="lazy" width="1200" height="900">
+        <img src="images/gettis-04.jpg" alt="CAT bulldozer on a Gettis excavation job — August 1982" loading="lazy" width="1200" height="900">
+        <img src="images/gettis-05.jpg" alt="Great-grandfather shoveling on the job — four generations of builders" loading="lazy" width="1200" height="900">
         <img src="images/gettis-06.jpg" alt="Father and son in Gettis Paving shirts with the family dog" loading="lazy" width="1200" height="1600">
         <img src="images/gettis-07.jpg" alt="Three generations of the Gettis family together" loading="lazy" width="1200" height="900">
-        <img src="images/gettis-08.jpg" alt="Oceanlake Paving plant � the family operation that started it all" loading="lazy" width="1200" height="1600">
-        <img src="images/gettis-family.jpg" alt="The Gettis family � four generations strong" loading="lazy" width="1200" height="960">
       </div>
       <div class="heritage-text">
         <h3>A Family Tradition of Building Right</h3>
@@ -1468,7 +1477,7 @@ gtag('config', 'G-H5GSYV3RJT');
   <div class="container">
     <div class="about-grid">
       <div class="about-image">
-        <img src="images/crew-workers.jpg" alt="Gettis Bros construction crew on site" loading="lazy" width="800" height="533">
+        <img src="images/gettis-family.jpg" alt="The Gettis family — four generations of builders" loading="lazy" width="1200" height="960">
         <div class="about-image-badge">4th Generation</div>
       </div>
       <div class="about-text">
@@ -1547,7 +1556,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </a>
       <a href="/gettisbros-site/sheds-outdoor-structures.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/shed-backyard.jpg" alt="Custom sheds and outdoor structures" loading="lazy" width="800" height="1200">
+          <img src="images/gettis-01.jpg" alt="Custom shed interior with hardwood floors — built by Gettis Bros" loading="lazy" width="1200" height="1600">
         </div>
         <div class="service-card-body">
           <h3>Sheds &amp; Outdoor Structures</h3>
@@ -1557,7 +1566,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </a>
       <a href="/gettisbros-site/new-construction.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/house-construction.jpg" alt="New home construction" loading="lazy" width="800" height="1200">
+          <img src="images/gettis-02.jpg" alt="Custom building interior — new construction by Gettis Bros" loading="lazy" width="1200" height="1600">
         </div>
         <div class="service-card-body">
           <h3>New Construction</h3>
@@ -1705,7 +1714,7 @@ gtag('config', 'G-H5GSYV3RJT');
       <a href="/gettisbros-site/gleneden-beach.html" class="area-tag">Gleneden Beach</a>
       <a href="/gettisbros-site/otis.html" class="area-tag">Otis</a>
       <a href="/gettisbros-site/otter-rock.html" class="area-tag">Otter Rock</a>
-      <span class="area-tag">Kernville</span>
+      <a href="/gettisbros-site/kernville.html" class="area-tag">Kernville</a>
       <span class="area-tag">Lincoln County</span>
     </div>
   </div>
@@ -1841,6 +1850,7 @@ gtag('config', 'G-H5GSYV3RJT');
           <li><a href="/gettisbros-site/gleneden-beach.html">Gleneden Beach</a></li>
           <li><a href="/gettisbros-site/otis.html">Otis</a></li>
           <li><a href="/gettisbros-site/otter-rock.html">Otter Rock</a></li>
+          <li><a href="/gettisbros-site/kernville.html">Kernville</a></li>
         </ul>
       </div>
       <div>
@@ -2035,8 +2045,7 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
 document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
   el.addEventListener('click', function(e) {
     if (window.innerWidth <= 768) {
-      e.preventDefault();
-      el.closest('.nav-dropdown').classList.toggle('open');
+      window.location.href = el.getAttribute('href');
     }
   });
 });

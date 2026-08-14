@@ -36,7 +36,7 @@ html { scroll-behavior: smooth; }
   --gray-500: #737373; --gray-700: #444444;
   --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-  --max-width: 1200px; --header-height: 96px;
+  --max-width: 1200px; --header-height: 110px;
 }
 body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
@@ -53,12 +53,10 @@ ul { list-style: none; }
 
 /* Header */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(17,17,17,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; overflow: hidden; white-space: nowrap; }
-.header-top span { display: inline-block; animation: marquee 18s linear infinite; }
-@keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
+.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
 .header-top a { font-weight: 700; }
-.header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
-.logo img { height: 72px; width: auto; }
+.header-main { display: flex; align-items: center; justify-content: space-between; padding: 5px 24px; max-width: 1400px; margin: 0 auto; min-height: var(--header-height); }
+.logo img { height: 80px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 8px; }
 .nav-links a { font-size: 15px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold); }
@@ -234,7 +232,7 @@ ul { list-style: none; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  :root { --header-height: 86px; }
+  :root { --header-height: 96px; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--header-height); left: 0; right: 0; background: var(--black); padding: 20px; }
   .nav-links.open a { padding: 12px 16px; font-size: 18px; }
@@ -508,6 +506,7 @@ gtag('config', 'G-H5GSYV3RJT');
           <li><a href="/gettisbros-site/gleneden-beach.html">Gleneden Beach</a></li>
           <li><a href="/gettisbros-site/otis.html">Otis</a></li>
           <li><a href="/gettisbros-site/otter-rock.html">Otter Rock</a></li>
+          <li><a href="/gettisbros-site/kernville.html">Kernville</a></li>
         </ul>
       </div>
       <div>
@@ -620,8 +619,7 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
 document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
   el.addEventListener('click', function(e) {
     if (window.innerWidth <= 768) {
-      e.preventDefault();
-      el.closest('.nav-dropdown').classList.toggle('open');
+      window.location.href = el.getAttribute('href');
     }
   });
 });
