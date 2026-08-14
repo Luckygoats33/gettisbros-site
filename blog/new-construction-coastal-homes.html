@@ -526,24 +526,41 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeEstimateModal();
 });
 // Estimate form submission — FormSubmit.co
+// Shared: surface a genuine submission failure instead of faking success
+function showFormError(form, btn, err) {
+  if (window.console && console.error) console.error('Form submission failed:', err);
+  if (btn) { btn.disabled = false; btn.textContent = btn.getAttribute('data-label') || 'Send'; }
+  var box = form.querySelector('.form-error');
+  if (!box) {
+    box = document.createElement('div');
+    box.className = 'form-error';
+    box.setAttribute('role', 'alert');
+    box.style.cssText = 'margin-top:14px;padding:12px 14px;border-radius:4px;background:#FDECEA;border:1px solid #C0392B;color:#7B1E13;font-size:14px;line-height:1.5;';
+    form.appendChild(box);
+  }
+  box.innerHTML = 'Sorry — we could not send your message. Please call <a href="tel:+19713041012" style="color:#7B1E13;font-weight:700;">(971) 304-1012</a> or email <a href="mailto:gettisbros@gmail.com" style="color:#7B1E13;font-weight:700;">gettisbros@gmail.com</a>.';
+}
+
 document.getElementById('estimateForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var form = this;
   var btn = form.querySelector('button[type="submit"]');
+  if (!btn.getAttribute('data-label')) btn.setAttribute('data-label', btn.textContent);
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
   fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
     method: 'POST',
     body: data
-  }).then(function(r) { return r.json(); }).then(function() {
+  }).then(function(r) { return r.json(); }).then(function(res) {
+    // FormSubmit returns success as the STRING "true"/"false" — anything else is a real failure
+    if (!res || String(res.success) !== 'true') throw new Error(res && res.message ? res.message : 'submission failed');
     if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
     form.style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
-  }).catch(function() {
-    if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+  }).catch(function(err) {
+    // Never claim success we did not get — the lead would be lost silently
+    showFormError(form, btn, err);
   });
 });
 document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
