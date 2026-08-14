@@ -514,6 +514,9 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
+  // Reply-To = the person who submitted, so hitting Reply answers the lead directly
+  var replyTo = form.querySelector('[name="email"], [name="your_email"]');
+  if (replyTo && replyTo.value) data.append('_replyto', replyTo.value);
   fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
     method: 'POST',
     body: data
@@ -545,6 +548,9 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
+  // Reply-To = the person who submitted, so hitting Reply answers the lead directly
+  var replyTo = form.querySelector('[name="email"], [name="your_email"]');
+  if (replyTo && replyTo.value) data.append('_replyto', replyTo.value);
   fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
     method: 'POST',
     body: data
