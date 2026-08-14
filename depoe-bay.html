@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+<meta property="og:image" content="https://gettisbros.com/images/og-image.jpg">
+<title>Depoe Bay Construction | Asphalt, Concrete, Fencing | Gettis Bros</title>
+<meta name="description" content="Depoe Bay OR construction contractor. Gettis Bros provides asphalt paving, concrete work, excavation, fencing, sheds, and new construction in Depoe Bay, Oregon. CCB Licensed. Free estimates.">
+<link rel="canonical" href="https://gettisbros.com/depoe-bay.html">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --black: #111111; --dark: #1A1A1A; --gold: #E8A924; --gold-hover: #F0BC40;
+  --white: #FFFFFF; --light: #FAFAF8; --gray-100: #F0F0EE; --gray-300: #D1D1CF;
+  --gray-500: #737373; --gray-700: #444444;
+  --font: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-width: 1200px; --header-height: 80px;
+}
+body { font-family: var(--font); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+.section-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.section-heading { font-family: var(--font-display); font-size: clamp(28px, 4vw, 42px); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; line-height: 1.15; text-wrap: balance; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 15px 32px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+.btn-gold { background: var(--gold); color: var(--black); }
+.btn-gold:hover { background: var(--gold-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,169,36,0.35); }
+.btn-dark { background: var(--dark); color: var(--white); }
+.btn-dark:hover { background: var(--black); transform: translateY(-2px); }
+.btn-outline-dark { background: transparent; color: var(--dark); border: 2px solid var(--dark); }
+.btn-outline-dark:hover { background: var(--dark); color: var(--white); }
+
+/* Header */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(17,17,17,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
+.header-top a { font-weight: 700; }
+.header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
+.logo img { height: 60px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links a { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); padding: 8px 14px; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--gold); }
+.header-cta { display: flex; align-items: center; gap: 20px; }
+.header-phone { font-size: 15px; font-weight: 700; color: var(--gold); }
+.header-btn { font-size: 12px; padding: 10px 22px; }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; }
+
+/* Dropdown Nav */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { display: inline-flex; align-items: center; gap: 4px; }
+.dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
+.nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: 0; background: var(--black);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 0;
+  min-width: 240px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); z-index: 1001;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+.nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: var(--gray-300); transition: all 0.2s; }
+.nav-dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
+
+/* Page Hero */
+.page-hero { position: relative; padding: 80px 0 40px; text-align: center; color: var(--white); margin-top: calc(var(--header-height) + 30px); }
+.page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 100%); }
+.page-hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.page-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin-bottom: 16px; }
+.page-hero-sub { font-size: 18px; opacity: 0.9; font-style: italic; max-width: 600px; margin: 0 auto; }
+
+/* City Intro */
+.city-intro { padding: 80px 0; }
+.city-intro-content { max-width: 800px; margin: 0 auto; }
+.city-intro-content h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+.city-intro-content p { font-size: 16px; line-height: 1.8; color: var(--gray-700); margin-bottom: 16px; }
+
+/* Services Grid */
+.services-grid-section { padding: 80px 0; background: var(--light); }
+.services-grid-section .section-header { text-align: center; margin-bottom: 48px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.service-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+.service-card img { width: 100%; height: 200px; object-fit: cover; }
+.service-card-body { padding: 24px; }
+.service-card-body h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.service-card-body p { font-size: 14px; line-height: 1.6; color: var(--gray-500); margin-bottom: 16px; }
+.service-card-body span { font-size: 13px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+.service-card-body span:hover { color: var(--gold-hover); }
+
+/* Why Choose */
+.why-choose { padding: 80px 0; }
+.why-choose .section-header { text-align: center; margin-bottom: 48px; }
+.trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 900px; margin: 0 auto; }
+.trust-item { display: flex; gap: 16px; align-items: flex-start; }
+.trust-icon { font-size: 32px; flex-shrink: 0; width: 48px; height: 48px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--black); font-weight: 700; }
+.trust-item h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.trust-item p { font-size: 14px; line-height: 1.6; color: var(--gray-500); }
+
+/* Service Areas */
+.service-areas { padding: 80px 0; background: var(--dark); color: var(--white); }
+.service-areas .section-header { text-align: center; margin-bottom: 40px; }
+.areas-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+.area-link { display: block; text-align: center; padding: 14px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-size: 14px; font-weight: 600; color: var(--gray-300); transition: all 0.2s; }
+.area-link:hover { background: rgba(232,169,36,0.15); border-color: var(--gold); color: var(--gold); }
+.area-link.current { background: rgba(232,169,36,0.2); border-color: var(--gold); color: var(--gold); }
+
+/* CTA */
+.cta-section { padding: 80px 0; background: var(--gold); text-align: center; }
+.cta-section h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 800; text-transform: uppercase; color: var(--black); margin-bottom: 16px; }
+.cta-section p { font-size: 17px; color: var(--dark); margin-bottom: 28px; }
+
+/* Footer */
+.site-footer { background: var(--black); color: var(--white); padding: 80px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1.3fr; gap: 48px; padding-bottom: 60px; }
+.footer-brand p { font-size: 14px; line-height: 1.7; color: var(--gray-300); margin-top: 16px; }
+.footer-brand img { height: 80px; width: auto; margin-bottom: 8px; }
+.footer-heading { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 20px; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { font-size: 14px; color: var(--gray-300); transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14px; color: var(--gray-300); }
+.footer-contact-icon { color: var(--gold); font-size: 16px; margin-top: 2px; }
+.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--gray-300); transition: all 0.2s; }
+.footer-social a:hover { background: var(--gold); color: var(--black); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 20px 0; text-align: center; font-size: 13px; color: var(--gray-500); }
+
+/* Floating CTA */
+.floating-cta { position: fixed; bottom: 24px; right: 24px; z-index: 999; background: var(--gold); color: var(--black); font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; padding: 14px 28px; border-radius: 50px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: all 0.3s; animation: pulse-shadow 2s infinite; }
+.floating-cta:hover { background: var(--gold-hover); transform: translateY(-2px); }
+@keyframes pulse-shadow { 0%, 100% { box-shadow: 0 4px 20px rgba(232,169,36,0.3); } 50% { box-shadow: 0 4px 30px rgba(232,169,36,0.5); } }
+
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.modal-overlay.active { display: flex; }
+.modal-box { background: var(--white); border-radius: 12px; padding: 40px 36px; max-width: 480px; width: 90%; position: relative; max-height: 90vh; overflow-y: auto; }
+.modal-close { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--gray-500); line-height: 1; }
+.modal-close:hover { color: var(--black); }
+.modal-box h3 { font-family: var(--font-display); font-size: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.modal-box > p { font-size: 15px; color: var(--gray-500); margin-bottom: 24px; }
+.modal-form input, .modal-form select, .modal-form textarea { width: 100%; padding: 12px 16px; margin-bottom: 12px; border: 1.5px solid var(--gray-300); border-radius: 6px; font-family: var(--font); font-size: 15px; background: var(--white); color: var(--dark); transition: border-color 0.2s; }
+.modal-form input:focus, .modal-form select:focus, .modal-form textarea:focus { outline: none; border-color: var(--gold); }
+.modal-form textarea { height: 80px; resize: vertical; }
+.modal-divider { text-align: center; margin: 20px 0; position: relative; }
+.modal-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--gray-300); }
+.modal-divider span { position: relative; background: var(--white); padding: 0 16px; font-size: 13px; color: var(--gray-500); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.modal-call-btn { font-size: 15px !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root { --header-height: 64px; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--header-height); left: 0; right: 0; background: var(--black); padding: 20px; }
+  .nav-links.open a { padding: 12px 16px; font-size: 14px; }
+  .mobile-toggle { display: block; }
+  .header-phone { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .nav-dropdown-menu { position: static; display: none; box-shadow: none; border: none; padding-left: 16px; background: rgba(255,255,255,0.03); border-radius: 0; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-toggle { width: 100%; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Gettis Bros Asphalt & Construction",
+  "description": "Fourth-generation construction company serving Depoe Bay and Lincoln County, Oregon.",
+  "url": "https://gettisbros.com/depoe-bay.html",
+  "telephone": "+19713507325",
+  "email": "gettisbros@gmail.com",
+  "areaServed": { "@type": "City", "name": "Depoe Bay", "containedInPlace": { "@type": "State", "name": "Oregon" } },
+  "serviceType": ["Asphalt Paving", "Sealcoating", "Concrete Work", "Excavation", "Fencing", "Shed Construction", "New Construction"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Depoe Bay", "addressRegion": "OR", "addressCountry": "US" },
+  "openingHours": "Mo-Fr 07:00-17:00",
+  "priceRange": "$$"
+}
+</script>
+<!-- Google Analytics — replace G-XXXXXXXXXX with your GA4 measurement ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-top">
+    <span>CCB Licensed &amp; Insured &bull; Family-Owned Since the 1960s &bull; Serving Lincoln County, OR &bull; <a href="tel:9713507325">(971) 350-7325</a></span>
+  </div>
+  <div class="header-main">
+    <a href="/" class="logo">
+      <img src="images/logo-white.png" alt="Gettis Bros Asphalt and Construction" loading="eager">
+    </a>
+    <nav class="nav-links" id="nav">
+      <a href="/">Home</a>
+      <div class="nav-dropdown">
+        <a href="/services.html" class="nav-dropdown-toggle">Services <span class="dropdown-arrow">&#9662;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="/asphalt-sealcoating.html">Asphalt &amp; Sealcoating</a>
+          <a href="/hardscaping-concrete.html">Hardscaping &amp; Concrete</a>
+          <a href="/excavation-site-prep.html">Excavation &amp; Site Prep</a>
+          <a href="/fencing-installation.html">Fencing Installation</a>
+          <a href="/sheds-outdoor-structures.html">Sheds &amp; Outdoor Structures</a>
+          <a href="/new-construction.html">New Construction</a>
+        </div>
+      </div>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:9713507325" class="header-phone">(971) 350-7325</a>
+      <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold header-btn">Free Estimate</a>
+    </div>
+    <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('images/oregon-coast.jpg');"></div>
+  <div class="page-hero-content">
+    <div class="section-eyebrow">Service Area</div>
+    <h1>Construction Services in Depoe Bay, Oregon</h1>
+    <p class="page-hero-sub">Quality construction for Depoe Bay's stunning cliffside properties and coastal community</p>
+  </div>
+</section>
+
+<section class="city-intro">
+  <div class="container">
+    <div class="city-intro-content">
+      <h2>Your Trusted Depoe Bay Construction Contractor</h2>
+      <p>Depoe Bay is one of the most visually dramatic communities on the entire Oregon Coast. Home to the world's smallest navigable harbor, towering basalt cliffs, and the famous spouting horns that launch ocean spray high into the air, this town demands construction work that matches its extraordinary landscape. Gettis Bros has been building and improving properties in Depoe Bay for decades, and we understand that every project here comes with unique challenges that only experienced local contractors can navigate.</p>
+      <p>Building on Depoe Bay's cliffside lots requires specialized knowledge of foundation engineering, proper drainage systems, and erosion control. Many of the town's upscale vacation homes and year-round residences sit perched above the Pacific Ocean, exposed to relentless salt spray, high winds, and driving rain. From driveways along Highway 101 to patios overlooking the whale watching grounds, we select materials and construction methods specifically engineered to withstand Depoe Bay's extreme coastal conditions while delivering the premium finish these properties deserve.</p>
+      <p>Whether you own a cliffside home with panoramic ocean views, a commercial property near the Whale Watching Center, or a charter fishing business down by the harbor, Gettis Bros brings the same fourth-generation craftsmanship to every Depoe Bay project. We handle everything from asphalt paving and sealcoating to concrete hardscaping, excavation, fencing, sheds, and ground-up new construction. As a CCB licensed and insured contractor with deep roots in Lincoln County, we are committed to building structures that endure the coastal elements for years to come.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services-grid-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-heading">Our Services in Depoe Bay</h2>
+    </div>
+    <div class="services-grid">
+      <a href="/asphalt-sealcoating.html" class="service-card">
+        <img src="images/asphalt-paving.jpg" alt="Asphalt paving in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>Asphalt &amp; Sealcoating</h3>
+          <p>Durable asphalt paving and protective sealcoating for Depoe Bay driveways, parking areas, and commercial lots exposed to constant salt air and coastal weather.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="/hardscaping-concrete.html" class="service-card">
+        <img src="images/concrete-patio.jpg" alt="Concrete work in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>Hardscaping &amp; Concrete</h3>
+          <p>Custom patios, retaining walls, walkways, and decorative concrete designed to complement Depoe Bay's cliffside properties and ocean views.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="/excavation-site-prep.html" class="service-card">
+        <img src="images/excavator-site.jpg" alt="Excavation in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>Excavation &amp; Site Prep</h3>
+          <p>Precision excavation and grading on Depoe Bay's rocky, cliff-adjacent terrain. Proper site preparation is critical for stable construction on coastal bluffs.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="/fencing-installation.html" class="service-card">
+        <img src="images/fence-wood.jpg" alt="Fencing in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>Fencing Installation</h3>
+          <p>Weather-resistant fencing built to handle Depoe Bay's intense salt spray and high winds. Wood, vinyl, and metal options for residential and commercial properties.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="/sheds-outdoor-structures.html" class="service-card">
+        <img src="images/shed-backyard.jpg" alt="Sheds in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>Sheds &amp; Outdoor Structures</h3>
+          <p>Custom-built sheds, workshops, and outdoor structures engineered for Depoe Bay's demanding coastal climate with corrosion-resistant hardware and finishes.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+      <a href="/new-construction.html" class="service-card">
+        <img src="images/house-construction.jpg" alt="New construction in Depoe Bay" loading="lazy">
+        <div class="service-card-body">
+          <h3>New Construction</h3>
+          <p>Ground-up residential and commercial construction in Depoe Bay. From cliffside dream homes to harbor-area businesses, we build to last on the Oregon Coast.</p>
+          <span>Learn More &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Why Gettis Bros</div>
+      <h2 class="section-heading">Why Choose Gettis Bros in Depoe Bay</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">&#10003;</div>
+        <div>
+          <h3>Cliff-Side Expertise</h3>
+          <p>We have extensive experience building safely on Depoe Bay's dramatic basalt cliffs and steep coastal terrain. Proper anchoring, drainage, and erosion control are built into every project from the start.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">&#10003;</div>
+        <div>
+          <h3>Premium Craftsmanship</h3>
+          <p>Depoe Bay's upscale homes and vacation properties demand a higher standard of finish. Our work matches the quality these properties require, from decorative concrete to precision-graded driveways.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">&#10003;</div>
+        <div>
+          <h3>Coastal Durability</h3>
+          <p>We select materials specifically rated for extreme salt spray exposure. Every fastener, sealant, and surface treatment is chosen to resist the corrosive marine environment that Depoe Bay is known for.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">&#10003;</div>
+        <div>
+          <h3>Local Response</h3>
+          <p>As a Lincoln County-based crew, we mobilize quickly for Depoe Bay projects. No long commutes from Portland or Salem. We know the local permitting process and can get your project moving fast.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service-areas">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" style="color: var(--gold);">Service Areas</div>
+      <h2 class="section-heading" style="color: var(--white);">Serving All of Lincoln County</h2>
+      <p style="color: var(--gray-300); margin-top: 12px;">We proudly serve communities throughout Lincoln County and the central Oregon Coast.</p>
+    </div>
+    <div class="areas-grid">
+      <a href="/lincoln-city.html" class="area-link">Lincoln City</a>
+      <a href="/newport.html" class="area-link">Newport</a>
+      <a href="/depoe-bay.html" class="area-link current">Depoe Bay</a>
+      <a href="/toledo.html" class="area-link">Toledo</a>
+      <a href="/siletz.html" class="area-link">Siletz</a>
+      <a href="/waldport.html" class="area-link">Waldport</a>
+      <a href="/yachats.html" class="area-link">Yachats</a>
+      <a href="/gleneden-beach.html" class="area-link">Gleneden Beach</a>
+      <a href="/otis.html" class="area-link">Otis</a>
+      <a href="/otter-rock.html" class="area-link">Otter Rock</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Start Your Depoe Bay Project?</h2>
+    <p>Get a free estimate from the Gettis Bros. team today. We're just a phone call away.</p>
+    <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-dark">Get Your Free Estimate</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo-white.png" alt="Gettis Bros logo">
+        <p>Fourth-generation construction company serving Lincoln County and the Oregon Coast. Quality craftsmanship built to endure coastal conditions.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/gettisbros" aria-label="Facebook">f</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="/asphalt-sealcoating.html">Asphalt &amp; Sealcoating</a></li>
+          <li><a href="/hardscaping-concrete.html">Hardscaping &amp; Concrete</a></li>
+          <li><a href="/excavation-site-prep.html">Excavation &amp; Site Prep</a></li>
+          <li><a href="/fencing-installation.html">Fencing Installation</a></li>
+          <li><a href="/sheds-outdoor-structures.html">Sheds &amp; Outdoor Structures</a></li>
+          <li><a href="/new-construction.html">New Construction</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Service Areas</h4>
+        <ul class="footer-links">
+          <li><a href="/lincoln-city.html">Lincoln City</a></li>
+          <li><a href="/newport.html">Newport</a></li>
+          <li><a href="/depoe-bay.html">Depoe Bay</a></li>
+          <li><a href="/toledo.html">Toledo</a></li>
+          <li><a href="/siletz.html">Siletz</a></li>
+          <li><a href="/waldport.html">Waldport</a></li>
+          <li><a href="/yachats.html">Yachats</a></li>
+          <li><a href="/gleneden-beach.html">Gleneden Beach</a></li>
+          <li><a href="/otis.html">Otis</a></li>
+          <li><a href="/otter-rock.html">Otter Rock</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact</h4>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#9742;</span>
+          <a href="tel:9713507325">(971) 350-7325</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#9993;</span>
+          <a href="mailto:gettisbros@gmail.com">gettisbros@gmail.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <span class="footer-contact-icon">&#128205;</span>
+          <span>Serving Lincoln County, OR</span>
+        </div>
+        <h4 class="footer-heading" style="margin-top: 28px;">Hours</h4>
+        <div class="footer-contact-item">
+          <span>Mon-Fri: 7am - 5pm<br>Sat: By appointment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      &copy; 2025 Gettis Bros Asphalt &amp; Construction. All rights reserved. CCB Licensed &amp; Insured. Proudly serving Lincoln County and the Oregon Coast.
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="estimateModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeEstimateModal()" aria-label="Close">&times;</button>
+    <h3>Get Your Free Estimate</h3>
+    <p>Tell us about your project and we'll get back to you within 24 hours.</p>
+    <form class="modal-form" id="estimateForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+      <select name="service">
+        <option value="">Select a Service</option>
+        <option>Asphalt &amp; Sealcoating</option>
+        <option>Hardscaping &amp; Concrete</option>
+        <option>Excavation &amp; Site Prep</option>
+        <option>Sheds &amp; Outdoor Structures</option>
+        <option>Fencing Installation</option>
+        <option>New Construction</option>
+      </select>
+      <textarea name="message" placeholder="Tell us about your project..."></textarea>
+      <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;">Submit Request</button>
+    </form>
+    <div id="formSuccess" style="display:none; text-align:center; padding: 40px 20px;">
+      <div style="font-size:48px; margin-bottom:16px;">&#10003;</div>
+      <h3 style="margin-bottom:12px;">Request Received!</h3>
+      <p style="color:var(--gray-500);">We'll get back to you within 24 hours. For faster service, call us directly.</p>
+      <a href="tel:9713507325" class="btn btn-dark" style="margin-top:20px;">&#9742; (971) 350-7325</a>
+    </div>
+    <div class="modal-divider"><span>or</span></div>
+    <a href="tel:9713507325" class="btn btn-dark modal-call-btn" style="width:100%; justify-content:center;">&#9742; Call Now for an Instant Quote</a>
+  </div>
+</div>
+
+<a href="#" onclick="openEstimateModal(); return false;" class="floating-cta">Free Estimate</a>
+
+<script>
+function openEstimateModal() {
+  document.getElementById('estimateModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeEstimateModal() {
+  document.getElementById('estimateModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('estimateModal').addEventListener('click', function(e) {
+  if (e.target === this) closeEstimateModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeEstimateModal();
+});
+// Estimate form submission — WP REST API endpoint
+document.getElementById('estimateForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  var data = new FormData(form);
+  fetch('/wp-json/gb/v1/estimate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.fromEntries(data))
+  }).then(function(r) { return r.json(); }).then(function() {
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }).catch(function() {
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
+    form.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+});
+document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
+  el.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      el.closest('.nav-dropdown').classList.toggle('open');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
