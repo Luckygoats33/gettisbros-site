@@ -35,7 +35,9 @@ ul { list-style: none; }
 .btn-dark:hover { background: var(--black); transform: translateY(-2px); }
 
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(17,17,17,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; }
+.header-top { background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.5px; padding: 6px 0; text-align: center; overflow: hidden; white-space: nowrap; }
+.header-top span { display: inline-block; animation: marquee 18s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 .header-top a { font-weight: 700; }
 .header-main { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1400px; margin: 0 auto; height: var(--header-height); }
 .logo img { height: 72px; width: auto; }
@@ -63,7 +65,7 @@ ul { list-style: none; }
 .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; color: var(--gray-300); transition: all 0.2s; }
 .nav-dropdown-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
 
-.page-hero { position: relative; color: var(--white); padding: 80px 0 40px; text-align: center; padding-top: calc(var(--header-height) + 30px); margin-top: 0; overflow: hidden; background: var(--black); }
+.page-hero { position: relative; color: var(--white); padding: 80px 0 40px; text-align: center; padding-top: calc(var(--header-height) + 42px); margin-top: 0; overflow: hidden; background: var(--black); }
 .page-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
 .page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 1; }
 .page-hero .container { position: relative; z-index: 2; }
@@ -80,6 +82,7 @@ ul { list-style: none; }
 /* Projects Grid */
 .projects-section { padding: 60px 0 100px; }
 .projects-category { margin-bottom: 60px; }
+.projects-category { scroll-margin-top: calc(var(--header-height) + 80px); }
 .projects-category h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--gold); display: inline-block; }
 .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .project-card { position: relative; border-radius: 6px; overflow: hidden; height: 300px; cursor: pointer; }
@@ -214,20 +217,20 @@ gtag('config', 'G-H5GSYV3RJT');
 <section class="project-filters">
   <div class="container">
     <div class="filter-tags">
-      <span class="filter-tag active">All Projects</span>
-      <span class="filter-tag">Asphalt &amp; Sealcoating</span>
-      <span class="filter-tag">Hardscaping &amp; Concrete</span>
-      <span class="filter-tag">Excavation</span>
-      <span class="filter-tag">Fencing</span>
-      <span class="filter-tag">Sheds &amp; Structures</span>
-      <span class="filter-tag">New Construction</span>
+      <a href="#all" class="filter-tag active">All Projects</a>
+      <a href="#asphalt" class="filter-tag">Asphalt &amp; Sealcoating</a>
+      <a href="#hardscaping" class="filter-tag">Hardscaping &amp; Concrete</a>
+      <a href="#excavation" class="filter-tag">Excavation</a>
+      <a href="/gettisbros-site/fencing-installation.html" class="filter-tag">Fencing</a>
+      <a href="/gettisbros-site/sheds-outdoor-structures.html" class="filter-tag">Sheds &amp; Structures</a>
+      <a href="/gettisbros-site/new-construction.html" class="filter-tag">New Construction</a>
     </div>
   </div>
 </section>
 
 <section class="projects-section">
   <div class="container">
-    <div class="projects-category">
+    <div class="projects-category" id="asphalt">
       <h2>Asphalt &amp; Sealcoating</h2>
       <div class="projects-grid">
         <div class="project-card">
@@ -245,7 +248,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </div>
     </div>
 
-    <div class="projects-category">
+    <div class="projects-category" id="hardscaping">
       <h2>Hardscaping &amp; Concrete</h2>
       <div class="projects-grid">
         <div class="project-card">
@@ -259,7 +262,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </div>
     </div>
 
-    <div class="projects-category">
+    <div class="projects-category" id="excavation">
       <h2>Excavation &amp; Site Prep</h2>
       <div class="projects-grid">
         <div class="project-card">
@@ -398,13 +401,6 @@ gtag('config', 'G-H5GSYV3RJT');
 </div>
 
 <script>
-document.querySelectorAll('.filter-tag').forEach(tag => {
-  tag.addEventListener('click', function() {
-    document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-
 // Mobile CTA bar
 (function() {
   var bar = document.getElementById('mobileCta');
