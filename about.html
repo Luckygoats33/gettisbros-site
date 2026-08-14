@@ -6,6 +6,9 @@
 <link rel="icon" type="image/x-icon" href="/gettisbros-site/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/gettisbros-site/images/favicon.png">
 <meta property="og:image" content="https://gettisbros.com/images/og-image.jpg">
+<meta property="og:title" content="About Gettis Bros | Four Generations of Coastal Construction">
+<meta property="og:description" content="Fourth-generation family construction company serving Lincoln County since the 1960s. Learn about our legacy, mission, and coastal expertise.">
+<meta property="og:type" content="website">
 <title>About Gettis Bros | Four Generations of Coastal Construction</title>
 <meta name="description" content="Gettis Bros is a fourth-generation construction company rooted in Lincoln County since the 1960s. Learn about our family legacy, mission, and coastal construction expertise.">
 <link rel="canonical" href="https://gettisbros.com/about.html">
@@ -81,7 +84,7 @@ ul { list-style: none; }
 /* Page Hero */
 .page-hero { position: relative; color: var(--white); padding: 80px 0 40px; text-align: center; padding-top: calc(var(--header-height) + 42px); margin-top: 0; overflow: hidden; background: var(--black); }
 .page-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); z-index: 1; }
+.page-hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.10); z-index: 1; }
 .page-hero .container { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) { .page-hero-video { display: none; } }
 .page-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 52px); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
@@ -133,7 +136,7 @@ ul { list-style: none; }
 }
 .family-grid .photo-item img {
   width: 100%;
-  height: 280px;
+  aspect-ratio: 4/3;
   object-fit: cover;
   transition: transform 0.4s;
 }
@@ -142,9 +145,9 @@ ul { list-style: none; }
 }
 /* Feature first and last photos as larger spans */
 .family-grid .photo-item:nth-child(1) { grid-column: span 2; }
-.family-grid .photo-item:nth-child(1) img { height: 340px; }
+.family-grid .photo-item:nth-child(1) img { aspect-ratio: 16/9; }
 .family-grid .photo-item:nth-child(6) { grid-column: span 2; }
-.family-grid .photo-item:nth-child(6) img { height: 340px; }
+.family-grid .photo-item:nth-child(6) img { aspect-ratio: 16/9; }
 
 /* CTA */
 .cta-section { padding: 100px 0; position: relative; text-align: center; color: var(--white); overflow: hidden; }
@@ -225,9 +228,9 @@ ul { list-style: none; }
   .family-grid { grid-template-columns: 1fr; }
   .family-grid .photo-item:nth-child(1) { grid-column: span 1; }
   .family-grid .photo-item:nth-child(6) { grid-column: span 1; }
-  .family-grid .photo-item img { height: 240px; }
+  .family-grid .photo-item img { aspect-ratio: 4/3; }
   .family-grid .photo-item:nth-child(1) img,
-  .family-grid .photo-item:nth-child(6) img { height: 280px; }
+  .family-grid .photo-item:nth-child(6) img { aspect-ratio: 4/3; }
 }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5GSYV3RJT"></script>
@@ -458,7 +461,7 @@ gtag('config', 'G-H5GSYV3RJT');
   </div>
   <div class="footer-bottom">
     <div class="container">
-      &copy; 2025 Gettis Bros Asphalt &amp; Construction. All rights reserved. CCB Licensed &amp; Insured. Proudly serving Lincoln County and the Oregon Coast.
+      &copy; 2026 Gettis Bros Asphalt &amp; Construction. All rights reserved. CCB Licensed &amp; Insured. Proudly serving Lincoln County and the Oregon Coast.
     </div>
   </div>
 </footer>
