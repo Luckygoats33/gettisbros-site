@@ -527,11 +527,12 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
   // Reply-To = the person who submitted, so hitting Reply answers the lead directly
   var replyTo = form.querySelector('[name="email"], [name="your_email"]');
   if (replyTo && replyTo.value) data.append('_replyto', replyTo.value);
-  fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
+  fetch('https://script.google.com/macros/s/AKfycbwBRbd9PFrHxwiIDv7XjbVO65nc3_7GWBn8GW7lhNr5uULs83d5A7D5k6lXEKVouDy5/exec', {
     method: 'POST',
-    body: data
+    // urlencoded keeps this a simple CORS request (no preflight, which Apps Script cannot answer)
+    body: new URLSearchParams(data)
   }).then(function(r) { return r.json(); }).then(function(res) {
-    // FormSubmit returns success as the STRING "true"/"false" — anything else is a real failure
+    // The endpoint returns success as the STRING "true"/"false" — anything else is a real failure
     if (!res || String(res.success) !== 'true') throw new Error(res && res.message ? res.message : 'submission failed');
     if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
     form.style.display = 'none';
