@@ -479,7 +479,7 @@ gtag('config', 'G-H5GSYV3RJT');
     <form class="modal-form" id="estimateForm">
       <input type="hidden" name="_subject" value="New Estimate Request - Gettis Bros">
       <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_cc" value="will@supportwellnessglobal.com">
+          <input type="hidden" name="_cc" value="gettisbros@gmail.com">
       <input type="text" name="_honey" style="display:none">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
@@ -560,7 +560,7 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
-  fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
+  fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
     method: 'POST',
     body: data
   }).then(function(r) { return r.json(); }).then(function(res) {

@@ -1894,7 +1894,7 @@ gtag('config', 'G-H5GSYV3RJT');
     <form class="modal-form" id="estimateForm">
       <input type="hidden" name="_subject" value="New Estimate Request - Gettis Bros">
       <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_cc" value="will@supportwellnessglobal.com">
+          <input type="hidden" name="_cc" value="gettisbros@gmail.com">
       <input type="text" name="_honey" style="display:none">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
@@ -1936,10 +1936,10 @@ gtag('config', 'G-H5GSYV3RJT');
     <button class="modal-close" onclick="closeReferralModal()">&times;</button>
     <h3>Refer a Friend</h3>
     <p style="color:var(--gray-500); margin-bottom:24px;">Know someone who needs construction work? Fill in their info and yours below. When they book, you earn 5% of the project.</p>
-    <form id="referralForm" action="https://formsubmit.co/ajax/gettisbros@gmail.com" method="POST" style="display:flex; flex-direction:column; gap:14px;">
+    <form id="referralForm" action="https://formsubmit.co/ajax/will@supportwellnessglobal.com" method="POST" style="display:flex; flex-direction:column; gap:14px;">
       <input type="hidden" name="_subject" value="New Referral from Website">
       <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_cc" value="will@supportwellnessglobal.com">
+          <input type="hidden" name="_cc" value="gettisbros@gmail.com">
       <input type="text" name="your_name" placeholder="Your Name" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
       <input type="tel" name="your_phone" placeholder="Your Phone" required style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
       <input type="email" name="your_email" placeholder="Your Email" style="padding:12px 16px; border:1px solid var(--gray-300); border-radius:4px; font-size:15px;">
@@ -2030,7 +2030,7 @@ document.getElementById('referralForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
-  fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
+  fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
     method: 'POST',
     body: data
   }).then(function(r) { return r.json(); }).then(function(res) {
@@ -2053,7 +2053,7 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
-  fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
+  fetch('https://formsubmit.co/ajax/will@supportwellnessglobal.com', {
     method: 'POST',
     body: data
   }).then(function(r) { return r.json(); }).then(function(res) {
