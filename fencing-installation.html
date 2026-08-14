@@ -227,14 +227,13 @@ ul { list-style: none; }
   .nav-dropdown-toggle { width: 100%; }
 }
 </style>
-<!-- Google Analytics — replace G-XXXXXXXXXX with your GA4 measurement ID -->
 <!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5GSYV3RJT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
+gtag('config', 'G-H5GSYV3RJT');
 </script>
 -->
 </head>
@@ -463,6 +462,9 @@ gtag('config', 'G-XXXXXXXXXX');
     <h3>Get Your Free Estimate</h3>
     <p>Tell us about your project and we'll get back to you within 24 hours.</p>
     <form class="modal-form" id="estimateForm">
+      <input type="hidden" name="_subject" value="New Estimate Request - Gettis Bros">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="tel" name="phone" placeholder="Phone Number">
@@ -506,7 +508,7 @@ document.getElementById('estimateModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeEstimateModal();
 });
-// Estimate form submission — WP REST API endpoint
+// Estimate form submission — FormSubmit.co
 document.getElementById('estimateForm').addEventListener('submit', function(e) {
   e.preventDefault();
   var form = this;
@@ -514,10 +516,9 @@ document.getElementById('estimateForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Sending...';
   var data = new FormData(form);
-  fetch('/wp-json/gb/v1/estimate', {
+  fetch('https://formsubmit.co/ajax/gettisbros@gmail.com', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(Object.fromEntries(data))
+    body: data
   }).then(function(r) { return r.json(); }).then(function() {
     if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'estimate', event_label: 'free_estimate_form' });
     form.style.display = 'none';
