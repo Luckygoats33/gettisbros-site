@@ -1,0 +1,7 @@
+# GitHub Pages build config.
+# Files kept in the repo for version control but never published to gettisbros.com.
+# apps-script/Code.gs holds the form endpoint source, including recipient
+# addresses — it must not be served as a scrapeable plain-text file.
+exclude:
+  - apps-script
+  - site-content.txt
