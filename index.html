@@ -34,7 +34,8 @@
     {"@type": "City", "name": "Yachats", "containedInPlace": {"@type": "State", "name": "Oregon"}},
     {"@type": "City", "name": "Gleneden Beach", "containedInPlace": {"@type": "State", "name": "Oregon"}},
     {"@type": "City", "name": "Otis", "containedInPlace": {"@type": "State", "name": "Oregon"}},
-    {"@type": "City", "name": "Otter Rock", "containedInPlace": {"@type": "State", "name": "Oregon"}}
+    {"@type": "City", "name": "Otter Rock", "containedInPlace": {"@type": "State", "name": "Oregon"}},
+    {"@type": "City", "name": "Kernville", "containedInPlace": {"@type": "State", "name": "Oregon"}}
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -1281,7 +1282,7 @@ ul { list-style: none; }
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: var(--header-height);
+    top: calc(var(--header-height) + 28px);
     left: 0;
     right: 0;
     background: var(--black);
@@ -1392,7 +1393,7 @@ gtag('config', 'G-H5GSYV3RJT');
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-bg"><video autoplay muted loop playsinline><source src="images/hero-video-hq.mp4" type="video/mp4"></video></div>
+  <div class="hero-bg"><video autoplay muted loop playsinline poster="images/hero-poster.jpg"><source src="images/hero-video-hq.mp4" type="video/mp4"></video></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Est. 1960s &bull; Lincoln County, Oregon</div>
     <h1>Four Generations of Coastal Construction</h1>
@@ -1516,7 +1517,7 @@ gtag('config', 'G-H5GSYV3RJT');
     <div class="services-grid">
       <a href="/gettisbros-site/asphalt-sealcoating.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/asphalt-paving.jpg" alt="Asphalt paving and sealcoating" loading="lazy" width="800" height="600">
+          <img src="images/asphalt-paving.jpg" alt="Paving crew with dump truck laying asphalt on a rural Oregon Coast road" loading="lazy" width="800" height="600">
         </div>
         <div class="service-card-body">
           <h3>Asphalt &amp; Sealcoating</h3>
@@ -1526,7 +1527,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </a>
       <a href="/gettisbros-site/hardscaping-concrete.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/concrete-patio.jpg" alt="Hardscaping and concrete work" loading="lazy" width="800" height="533">
+          <img src="images/concrete-patio.jpg" alt="Covered porch entrance with stone columns on a coastal home" loading="lazy" width="800" height="533">
         </div>
         <div class="service-card-body">
           <h3>Hardscaping &amp; Concrete</h3>
@@ -1536,7 +1537,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </a>
       <a href="/gettisbros-site/excavation-site-prep.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/excavator-site.jpg" alt="Excavation and site preparation" loading="lazy" width="800" height="1067">
+          <img src="images/excavator-site.jpg" alt="Yellow excavator at a construction job site on the Oregon Coast" loading="lazy" width="800" height="1067">
         </div>
         <div class="service-card-body">
           <h3>Excavation &amp; Site Prep</h3>
@@ -1546,7 +1547,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </a>
       <a href="/gettisbros-site/fencing-installation.html" class="service-card">
         <div class="service-card-img">
-          <img src="images/fence-01.jpg" alt="Fencing installation" loading="lazy" width="800" height="600">
+          <img src="images/fence-01.jpg" alt="Wood fence installation on a residential property in Lincoln County" loading="lazy" width="800" height="600">
         </div>
         <div class="service-card-body">
           <h3>Fencing Installation</h3>
@@ -1588,21 +1589,21 @@ gtag('config', 'G-H5GSYV3RJT');
     </div>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="images/project-driveway.jpg" alt="Asphalt driveway project" loading="lazy" width="800" height="600">
+        <img src="images/project-driveway.jpg" alt="Asphalt paving operation on a rural road near Newport, Oregon" loading="lazy" width="800" height="600">
         <div class="project-overlay">
           <h3>Asphalt Driveway</h3>
           <p>Newport, OR</p>
         </div>
       </div>
       <div class="project-card">
-        <img src="images/project-patio.jpg" alt="Hardscape patio project" loading="lazy" width="800" height="1200">
+        <img src="images/project-patio.jpg" alt="Custom patio and walkway project in Lincoln City, Oregon" loading="lazy" width="800" height="1200">
         <div class="project-overlay">
           <h3>Custom Patio &amp; Walkway</h3>
           <p>Lincoln City, OR</p>
         </div>
       </div>
       <div class="project-card">
-        <img src="images/project-excavation.jpg" alt="Excavation project" loading="lazy" width="800" height="1200">
+        <img src="images/project-excavation.jpg" alt="Excavation and grading work at a Toledo, Oregon job site" loading="lazy" width="800" height="1200">
         <div class="project-overlay">
           <h3>Site Excavation</h3>
           <p>Toledo, OR</p>
@@ -1731,7 +1732,7 @@ gtag('config', 'G-H5GSYV3RJT');
     <div class="blog-grid">
       <div class="blog-card">
         <div class="blog-card-img">
-          <img src="images/blog-sealcoating.jpg" alt="Asphalt maintenance tips" loading="lazy" width="800" height="1067">
+          <img src="images/blog-sealcoating.jpg" alt="Sealcoated asphalt driveway on the Oregon Coast" loading="lazy" width="800" height="1067">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date">August 2025</div>
@@ -1741,7 +1742,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </div>
       <div class="blog-card">
         <div class="blog-card-img">
-          <img src="images/blog-hardscape.jpg" alt="Concrete patio ideas" loading="lazy" width="800" height="1200">
+          <img src="images/blog-hardscape.jpg" alt="Hardscape patio design ideas for Oregon Coast homes" loading="lazy" width="800" height="1200">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date">July 2025</div>
@@ -1751,7 +1752,7 @@ gtag('config', 'G-H5GSYV3RJT');
       </div>
       <div class="blog-card">
         <div class="blog-card-img">
-          <img src="images/fence-03.jpg" alt="Fencing in coastal weather" loading="lazy" width="800" height="533">
+          <img src="images/fence-03.jpg" alt="Wood fence standing strong in Oregon Coast weather" loading="lazy" width="800" height="533">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date">June 2025</div>

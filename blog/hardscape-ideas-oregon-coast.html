@@ -192,7 +192,7 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   :root { --header-height: 96px; }
   .nav-links { display: none; }
-  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: var(--header-height); left: 0; right: 0; background: var(--black); padding: 20px; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: calc(var(--header-height) + 28px); left: 0; right: 0; background: var(--black); padding: 20px; }
   .nav-links.open a { padding: 12px 16px; font-size: 18px; }
   .mobile-toggle { display: block; }
   .footer-bottom { display: none; }
@@ -344,6 +344,12 @@ gtag('config', 'G-H5GSYV3RJT');
           <a href="#" onclick="openEstimateModal(); return false;" class="btn btn-gold">Request a Free Estimate</a>
           <a href="tel:9713041012" class="btn btn-dark">&#9742; (971) 304-1012</a>
         </div>
+      </div>
+
+      <div style="background:var(--light);border-left:4px solid var(--gold);padding:24px 28px;margin:40px 0;border-radius:0 6px 6px 0;">
+        <p style="font-size:15px;line-height:1.7;margin:0 0 12px;color:var(--gray-700);">Ready to get started? Gettis Bros has been serving Lincoln County since the 1960s.</p>
+        <a href="/gettisbros-site/hardscaping-concrete.html" class="btn btn-gold" style="font-size:12px;padding:10px 22px;">View Our Hardscaping &amp; Concrete Services</a>
+        <a href="/gettisbros-site/contact.html" class="btn btn-dark" style="font-size:12px;padding:10px 22px;margin-left:8px;">Get a Free Estimate</a>
       </div>
 
     </div>
