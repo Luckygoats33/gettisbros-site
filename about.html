@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="preload" as="image" href="/images/poster-about.jpg" fetchpriority="high">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <meta property="og:image" content="https://gettisbros.com/images/og-image.jpg">
@@ -277,8 +280,8 @@ gtag('config', 'G-H5GSYV3RJT');
 <main>
 
 <section class="page-hero">
-  <video class="page-hero-video" autoplay muted loop playsinline>
-    <source src="images/hero-about.mp4" type="video/mp4">
+  <video class="page-hero-video" autoplay muted loop playsinline poster="images/poster-about.jpg" preload="none">
+    <source data-src="images/hero-about.mp4" type="video/mp4">
   </video>
   <div class="container">
     <h1>About Gettis Bros</h1>
@@ -330,7 +333,7 @@ gtag('config', 'G-H5GSYV3RJT');
 </section>
 
 <section class="coastal dark-section">
-  <div class="coastal-video-bg"><video autoplay muted loop playsinline><source src="images/hero-projects.mp4" type="video/mp4"></video></div>
+  <div class="coastal-video-bg"><video autoplay muted loop playsinline poster="images/poster-projects.jpg" preload="none"><source data-src="images/hero-projects.mp4" type="video/mp4"></video></div>
   <div class="container">
     <div class="coastal-grid">
       <div class="coastal-text">
@@ -390,7 +393,7 @@ gtag('config', 'G-H5GSYV3RJT');
 </section>
 
 <section class="cta-section dark-section">
-  <div class="cta-section-video"><video autoplay muted loop playsinline><source src="images/hero-services.mp4" type="video/mp4"></video></div>
+  <div class="cta-section-video"><video autoplay muted loop playsinline poster="images/poster-services.jpg" preload="none"><source data-src="images/hero-services.mp4" type="video/mp4"></video></div>
   <div class="container">
     <div class="section-eyebrow">Contact Us Today</div>
     <h2>Ready to Start Your Project?</h2>
@@ -562,5 +565,37 @@ document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
 });
 </script>
 
+<script>
+// Lazy-load background videos: posters paint immediately, video loads when near viewport
+(function() {
+  function loadVideo(v) {
+    var s = v.querySelector('source[data-src]');
+    if (!s) return;
+    var url = s.getAttribute('data-src');
+    var sm = s.getAttribute('data-src-sm');
+    if (sm && window.innerWidth < 900) url = sm;
+    s.setAttribute('src', url);
+    s.removeAttribute('data-src');
+    v.load();
+    var p = v.play();
+    if (p && p.catch) p.catch(function() {});
+  }
+  function init() {
+    var c = navigator.connection || {};
+    if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '')) return; // posters only on slow/metered
+    var vids = [].slice.call(document.querySelectorAll('video source[data-src]')).map(function(s) { return s.parentElement; });
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) { vids.forEach(loadVideo); return; }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { loadVideo(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '200px' });
+    vids.forEach(function(v) { io.observe(v); });
+  }
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+})();
+</script>
 </body>
 </html>

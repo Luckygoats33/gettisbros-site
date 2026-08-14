@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="preload" as="image" href="/images/poster-services.jpg" fetchpriority="high">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <meta property="og:image" content="https://gettisbros.com/images/og-image.jpg">
@@ -167,6 +170,7 @@ ul { list-style: none; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
   .nav-dropdown-toggle { width: 100%; }
 }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5GSYV3RJT"></script>
 <script>
@@ -210,8 +214,8 @@ gtag('config', 'G-H5GSYV3RJT');
 <main>
 
 <section class="page-hero">
-  <video class="page-hero-video" autoplay muted loop playsinline>
-    <source src="images/hero-services.mp4" type="video/mp4">
+  <video class="page-hero-video" autoplay muted loop playsinline poster="images/poster-services.jpg" preload="none">
+    <source data-src="images/hero-services.mp4" type="video/mp4">
   </video>
   <div class="container">
     <h1>Our Services</h1>
@@ -231,7 +235,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">Durable, clean, and coast-tough surfaces.</div>
         <p>We specialize in asphalt paving, patching, sealcoating, and parking lot striping &mdash; built to handle Oregon&rsquo;s coastal conditions and deliver long-lasting results for driveways, roads, and commercial lots.</p>
         <p>Our premium sealcoating process forms a durable barrier against UV rays, moisture, and salt corrosion. Regular sealcoating keeps pavement flexible, prevents cracking, and maintains a dark, clean appearance.</p>
-        <a href="/asphalt-sealcoating.html" class="btn btn-gold">Learn More</a>
+        <a href="/asphalt-sealcoating.html" class="btn btn-gold">Learn More<span class="sr-only"> about asphalt paving &amp; sealcoating</span></a>
       </div>
     </div>
   </div>
@@ -249,7 +253,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">Transform your outdoor space.</div>
         <p>We build patios, retaining walls, garden paths, and decorative concrete features that combine curb appeal with structural reliability &mdash; ideal for both primary residences and vacation homes along the coast.</p>
         <p>Every hardscape project is engineered for the Oregon Coast, using materials and techniques that resist moisture, salt air, and shifting ground conditions.</p>
-        <a href="/hardscaping-concrete.html" class="btn btn-gold">Learn More</a>
+        <a href="/hardscaping-concrete.html" class="btn btn-gold">Learn More<span class="sr-only"> about hardscaping &amp; concrete</span></a>
       </div>
     </div>
   </div>
@@ -267,7 +271,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">Start strong from the ground up.</div>
         <p>Our excavation team provides site clearing, grading, trenching, drainage solutions, and foundation prep to set your project up for success &mdash; safely and on schedule.</p>
         <p>Whether you&rsquo;re breaking ground on a new home or prepping a commercial lot, we handle the groundwork so your project starts on solid footing.</p>
-        <a href="/excavation-site-prep.html" class="btn btn-gold">Learn More</a>
+        <a href="/excavation-site-prep.html" class="btn btn-gold">Learn More<span class="sr-only"> about excavation &amp; site prep</span></a>
       </div>
     </div>
   </div>
@@ -285,7 +289,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">Privacy, security, and curb appeal.</div>
         <p>We design and install wood, vinyl, and chain link fences that enhance property lines, protect what matters, and hold up against coastal wear &mdash; perfect for homeowners and short-term rentals.</p>
         <p>Every fence is built to withstand Oregon Coast wind and weather year after year, with materials selected for coastal durability.</p>
-        <a href="/fencing-installation.html" class="btn btn-gold">Learn More</a>
+        <a href="/fencing-installation.html" class="btn btn-gold">Learn More<span class="sr-only"> about fencing installation</span></a>
       </div>
     </div>
   </div>
@@ -303,7 +307,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">Custom-built storage and utility solutions.</div>
         <p>From garden sheds to backyard workshops, our custom structures are tailored to your space and built with premium materials to withstand Oregon&rsquo;s weather and maximize usability.</p>
         <p>We build carports, pergolas, and outdoor living spaces that are functional, attractive, and built to last through coastal conditions.</p>
-        <a href="/sheds-outdoor-structures.html" class="btn btn-gold">Learn More</a>
+        <a href="/sheds-outdoor-structures.html" class="btn btn-gold">Learn More<span class="sr-only"> about sheds &amp; outdoor structures</span></a>
       </div>
     </div>
   </div>
@@ -321,7 +325,7 @@ gtag('config', 'G-H5GSYV3RJT');
         <div class="service-tagline">From vision to reality.</div>
         <p>Whether it&rsquo;s a detached garage, guest house, or your forever home, our general construction services are crafted to meet your needs with coastal-tested materials and veteran-level execution.</p>
         <p>Full-service new builds from foundation to finish. Custom homes and commercial buildings designed for the Oregon Coast.</p>
-        <a href="/new-construction.html" class="btn btn-gold">Learn More</a>
+        <a href="/new-construction.html" class="btn btn-gold">Learn More<span class="sr-only"> about new construction</span></a>
       </div>
     </div>
   </div>
@@ -525,5 +529,37 @@ document.querySelectorAll('.nav-dropdown-toggle').forEach(function(el) {
 });
 </script>
 
+<script>
+// Lazy-load background videos: posters paint immediately, video loads when near viewport
+(function() {
+  function loadVideo(v) {
+    var s = v.querySelector('source[data-src]');
+    if (!s) return;
+    var url = s.getAttribute('data-src');
+    var sm = s.getAttribute('data-src-sm');
+    if (sm && window.innerWidth < 900) url = sm;
+    s.setAttribute('src', url);
+    s.removeAttribute('data-src');
+    v.load();
+    var p = v.play();
+    if (p && p.catch) p.catch(function() {});
+  }
+  function init() {
+    var c = navigator.connection || {};
+    if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '')) return; // posters only on slow/metered
+    var vids = [].slice.call(document.querySelectorAll('video source[data-src]')).map(function(s) { return s.parentElement; });
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) { vids.forEach(loadVideo); return; }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { loadVideo(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '200px' });
+    vids.forEach(function(v) { io.observe(v); });
+  }
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+})();
+</script>
 </body>
 </html>

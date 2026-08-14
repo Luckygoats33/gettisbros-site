@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+<link rel="preload" as="image" href="/images/poster-contact.jpg" fetchpriority="high">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
 <meta property="og:image" content="https://gettisbros.com/images/og-image.jpg">
@@ -216,8 +219,8 @@ gtag('config', 'G-H5GSYV3RJT');
 <main>
 
 <section class="page-hero">
-  <video class="page-hero-video" autoplay muted loop playsinline>
-    <source src="images/hero-contact.mp4" type="video/mp4">
+  <video class="page-hero-video" autoplay muted loop playsinline poster="images/poster-contact.jpg" preload="none">
+    <source data-src="images/hero-contact.mp4" type="video/mp4">
   </video>
   <div class="container">
     <h1>Contact Us</h1>
@@ -537,5 +540,37 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 </script>
 
+<script>
+// Lazy-load background videos: posters paint immediately, video loads when near viewport
+(function() {
+  function loadVideo(v) {
+    var s = v.querySelector('source[data-src]');
+    if (!s) return;
+    var url = s.getAttribute('data-src');
+    var sm = s.getAttribute('data-src-sm');
+    if (sm && window.innerWidth < 900) url = sm;
+    s.setAttribute('src', url);
+    s.removeAttribute('data-src');
+    v.load();
+    var p = v.play();
+    if (p && p.catch) p.catch(function() {});
+  }
+  function init() {
+    var c = navigator.connection || {};
+    if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '')) return; // posters only on slow/metered
+    var vids = [].slice.call(document.querySelectorAll('video source[data-src]')).map(function(s) { return s.parentElement; });
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) { vids.forEach(loadVideo); return; }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { loadVideo(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '200px' });
+    vids.forEach(function(v) { io.observe(v); });
+  }
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+})();
+</script>
 </body>
 </html>
